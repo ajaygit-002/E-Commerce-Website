@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>❖ Prime Store</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="topbar">
+
+  <!-- LOGO -->
+  <div class="logo">
+    ❖ <span>Prime Store</span>
+  </div>
+
+  <!-- BIG SEARCH -->
+  <div class="search-wrapper">
+    <input id="searchInput" type="text" placeholder="Search for Products, Brands and More">
+  </div>
+
+  <!-- RIGHT ACTIONS -->
+  <div class="actions">
+    <button id="loginBtn">Login</button>
+    <button class="cart-btn">🛒 Cart</button>
+  </div>
+
+</header>
+
+
+<!-- ================= CATEGORY ROW ================= -->
+<div class="categories">
+  <a href="mobiles.html"><div>📱 Mobiles</div></a>
+  <a href="fashion.html"><div>👕 Fashion</div></a>
+  <a href="electronics.html"><div>💻 Electronics</div></a>
+  <a href="home.html"><div>🏠 Home</div></a>
+  <a href="appliances.html"><div>⚙️ Appliances</div></a>
+  <a href="beauty.html"><div>💄 Beauty</div></a>
+  <a href="flights.html"><div>✈️ Flights</div></a>
+  <a href="grocery.html"><div>🛒 Grocery</div></a>
+</div>
+
+
+<!-- ================= BANNER ================= -->
+<section class="banner">
+  <h1>BIG SALE DAYS</h1>
+  <p>Up to 70% OFF on all products</p>
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+<section class="products-section">
+  <h2>Best Deals on Products</h2>
+
+  <div class="products" id="productList">
+
+    <div class="card">
+      <img src="asset/headphone.png">
+      <h4>Headphones</h4>
+      <p>$49</p>
+    </div>
+
+    <div class="card">
+      <img src="asset/shoes.png">
+      <h4>Shoes</h4>
+      <p>$59</p>
+    </div>
+
+    <div class="card">
+      <img src="asset/bag.png">
+      <h4>Bag</h4>
+      <p>$99</p>
+    </div>
+
+    <div class="card">
+      <img src="asset/glass.png">
+      <h4>Cooling Glass</h4>
+      <p>$39</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <span class="close">&times;</span>
+    <h3>Login</h3>
+    <input placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button>Login</button>
+  </div>
+</div>
+
+
+<script src="index.js"></script>
+</body>
+</html>

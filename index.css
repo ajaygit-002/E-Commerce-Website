@@ -1,0 +1,169 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#f1f3f6;
+}
+
+/* ===== TOP HEADER ===== */
+.topbar{
+  background:#2874f0;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:12px 40px;
+  color:white;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* ===== SEARCH ===== */
+.search-wrapper{
+  flex:1;
+}
+
+.search-wrapper input{
+  width:100%;
+  padding:10px 15px;
+  border:none;
+  border-radius:4px;
+}
+
+/* ===== ACTIONS ===== */
+.actions{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.actions button{
+  background:white;
+  color:#2874f0;
+  border:none;
+  padding:7px 15px;
+  border-radius:4px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ===== CART BUTTON ===== */
+.cart-btn{
+  background:#ff9f00;
+  color:white;
+  border:none;
+  padding:7px 15px;
+  border-radius:4px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.cart-btn:hover{
+  background:#fb8c00;
+}
+
+
+/* ===== CATEGORY BAR ===== */
+.categories{
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  padding:12px;
+  font-weight:500;
+}
+
+/* ===== BANNER ===== */
+.banner{
+  height:300px;
+  background:linear-gradient(135deg,#2874f0,#38bdf8);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* ===== PRODUCTS ===== */
+.products-section{
+  padding:30px 40px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:20px;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  border-radius:8px;
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  height:150px;
+  object-fit:contain;
+  width:100%;
+}
+
+/* ===== LOGIN MODAL ===== */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-box{
+  background:white;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  border-radius:6px;
+  width:250px;
+}
+
+.close{
+  text-align:right;
+  cursor:pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .topbar{
+    flex-direction:column;
+  }
+
+  .categories{
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+}
