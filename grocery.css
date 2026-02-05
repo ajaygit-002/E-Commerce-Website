@@ -1,7 +1,6 @@
 /* ================= PAGE BACKGROUND ================= */
 body{
   background:#f1f3f6;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ================= BREADCRUMB ================= */
@@ -17,7 +16,7 @@ body{
   text-decoration:none;
 }
 
-/* ================= HEADER TITLE ================= */
+/* ================= CATEGORY HEADER ================= */
 .category-header{
   background:#fff;
   padding:20px 40px;
@@ -26,29 +25,29 @@ body{
 
 .category-header h1{
   font-size:24px;
-  margin-bottom:5px;
+  margin-bottom:4px;
 }
 
 .category-header p{
-  font-size:14px;
   color:#666;
+  font-size:14px;
 }
 
-/* ================= LAYOUT ================= */
+/* ================= MAIN LAYOUT ================= */
 .filters-container{
   display:flex;
   gap:20px;
   padding:20px 40px;
 }
 
-/* ================= SIDEBAR FILTER ================= */
+/* ================= SIDEBAR ================= */
 .filters{
-  width:240px;
+  width:230px;
   background:#fff;
   padding:18px;
   border-radius:6px;
   height:fit-content;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 
 .filters h3{
@@ -67,19 +66,19 @@ body{
   cursor:pointer;
 }
 
-/* ================= PRODUCTS AREA ================= */
+/* ================= PRODUCT AREA ================= */
 .products-container{
   flex:1;
 }
 
-/* ================= FLIPKART GRID ================= */
+/* ================= PRODUCT GRID ================= */
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:18px;
 }
 
-/* ================= PRODUCT CARD ================= */
+/* ================= FLIPKART STYLE CARD ================= */
 .card{
   background:#fff;
   padding:15px;
@@ -90,33 +89,31 @@ body{
   position:relative;
 }
 
-/* hover effect like flipkart */
 .card:hover{
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
   transform:translateY(-5px);
-  box-shadow:0 8px 18px rgba(0,0,0,.18);
 }
 
 /* image */
 .card img{
-  height:170px;
+  height:150px;
   width:100%;
   object-fit:contain;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
-/* name */
+/* title */
 .card h4{
-  font-size:14px;
-  font-weight:600;
+  font-size:15px;
   margin-bottom:6px;
-  min-height:38px;
+  font-weight:600;
 }
 
 /* price */
 .price{
   font-size:16px;
   font-weight:bold;
-  color:#388e3c;   /* flipkart green */
+  color:#388e3c; /* Flipkart green price */
   margin-bottom:10px;
 }
 
@@ -142,32 +139,32 @@ body{
   background:#172337;
   color:white;
   text-align:center;
-  padding:20px;
+  padding:18px;
   margin-top:40px;
 }
 
 /* ================= RESPONSIVE ================= */
 
-/* laptop */
-@media(max-width:1200px){
+/* Tablet */
+@media(max-width:1000px){
   .products{
     grid-template-columns:repeat(3,1fr);
   }
 }
 
-/* tablet */
-@media(max-width:900px){
+/* Small tablet */
+@media(max-width:800px){
   .products{
     grid-template-columns:repeat(2,1fr);
   }
 
   .filters{
-    display:none; /* hide sidebar like flipkart mobile */
+    display:none; /* hide sidebar on mobile like Flipkart */
   }
 }
 
-/* mobile */
-@media(max-width:600px){
+/* Mobile */
+@media(max-width:500px){
 
   .products{
     grid-template-columns:1fr;
