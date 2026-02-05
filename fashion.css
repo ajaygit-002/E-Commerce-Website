@@ -1,0 +1,232 @@
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#f5f6fa;
+  color:#333;
+}
+
+/* ================= HEADER ================= */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 40px;
+  background:#0b3d91;
+  color:#fff;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#ffd700;
+}
+
+/* SEARCH */
+.search-wrapper{
+  flex:1;
+  max-width:600px;
+}
+
+.search-wrapper input{
+  width:100%;
+  padding:10px 15px;
+  border-radius:6px;
+  border:none;
+  outline:none;
+}
+
+/* ACTION BUTTONS */
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+.actions button{
+  padding:8px 14px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+#loginBtn{
+  background:#fff;
+  color:#0b3d91;
+}
+
+.cart-btn{
+  background:#ffd700;
+}
+
+/* ================= BREADCRUMB ================= */
+.breadcrumb{
+  padding:12px 40px;
+  background:#fff;
+  font-size:14px;
+}
+
+.breadcrumb a{
+  text-decoration:none;
+  color:#0b3d91;
+}
+
+/* ================= CATEGORY HEADER ================= */
+.category-header{
+  padding:25px 40px;
+}
+
+.category-header h1{
+  font-size:28px;
+  margin-bottom:5px;
+}
+
+/* ================= LAYOUT ================= */
+.filters-container{
+  display:flex;
+  gap:20px;
+  padding:20px 40px;
+}
+
+/* ================= FILTERS ================= */
+.filters{
+  width:220px;
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  height:fit-content;
+}
+
+.filter-group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:10px;
+}
+
+/* ================= PRODUCTS ================= */
+.products-container{
+  flex:1;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+/* PRODUCT CARD */
+.card{
+  background:#fff;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+  transition:.2s;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.price{
+  font-weight:bold;
+  color:#0b3d91;
+  margin:6px 0;
+}
+
+.btn{
+  background:#0b3d91;
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  margin-top:40px;
+  padding:20px;
+  text-align:center;
+  background:#0b3d91;
+  color:#fff;
+}
+
+/* =====================================================
+   📱 RESPONSIVE BREAKPOINTS
+   ===================================================== */
+
+/* -------- Tablet -------- */
+@media(max-width:1024px){
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .filters{
+    width:180px;
+  }
+}
+
+/* -------- Small Tablet -------- */
+@media(max-width:768px){
+
+  .filters-container{
+    flex-direction:column;
+  }
+
+  .filters{
+    width:100%;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .topbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .actions{
+    justify-content:space-between;
+  }
+}
+
+/* -------- Mobile -------- */
+@media(max-width:480px){
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .search-wrapper{
+    order:3;
+  }
+
+  .category-header h1{
+    font-size:22px;
+  }
+
+  .card img{
+    height:180px;
+  }
+}
