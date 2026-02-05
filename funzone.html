@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun Zone - Prime Store</title>
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="funzone.css">
+</head>
+
+<body>
+
+<!-- ================= VIDEO BACKGROUND ================= -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="asset/fun-bg.mp4" type="video/mp4">
+</video>
+
+
+<div class="overlay">
+
+  <section class="banner">
+    <h1>🎉 Welcome to Fun Zone</h1>
+    <p>Play Games • Win Rewards • Enjoy Shopping</p>
+  </section>
+
+
+  <!-- ================= SPIN & WIN ================= -->
+  <section class="fun-container">
+
+    <h2>🎁 Spin & Win</h2>
+
+    <!-- image stays STATIC (no rotation) -->
+   <div class="wheel-box">
+  <video class="wheel-video" autoplay muted loop playsinline>
+    <source src="asset/fun/A_vibrant_carnival_202602051753_1smg7.mp4" type="video/mp4">
+  </video>
+</div>
+
+    <button class="spin-btn" onclick="getPrize()">TAP TO SPIN</button>
+
+    <div id="result" class="result"></div>
+
+  </section>
+
+</div>
+
+
+<script>
+const prizes = [
+  "10% OFF Coupon 🎉",
+  "Free Gift 🎁",
+  "₹100 Cashback 💰",
+  "50% OFF 🔥",
+  "Better Luck Next Time 😅",
+  "Spin Again 🔄"
+];
+
+function getPrize(){
+  const result = document.getElementById("result");
+
+  const randomPrize = prizes[Math.floor(Math.random()*prizes.length)];
+
+  result.innerText = "🎊 You Won: " + randomPrize;
+}
+</script>
+
+</body>
+</html>

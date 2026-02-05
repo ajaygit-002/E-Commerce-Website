@@ -1,0 +1,68 @@
+/* VIDEO BACKGROUND */
+.bg-video{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+}
+
+/* overlay */
+.overlay{
+  background:rgba(0,0,0,0.65);
+  min-height:100vh;
+  color:#fff;
+}
+
+/* section */
+.fun-container{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.wheel-video{
+  width:100%;
+  max-width:350px;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+
+/* wheel image (NO animation) */
+.wheel-box{
+  width:320px;
+  margin:auto;
+}
+
+.wheel-img{
+  width:100%;
+}
+
+/* button */
+.spin-btn{
+  margin-top:25px;
+  padding:14px 35px;
+  font-size:18px;
+  font-weight:bold;
+  border:none;
+  border-radius:30px;
+  background:#ff9f00;
+  color:#fff;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.spin-btn:hover{
+  background:#ff8800;
+  transform:scale(1.05);
+}
+
+/* result */
+.result{
+  margin-top:20px;
+  font-size:22px;
+  font-weight:bold;
+  color:#ffd700;
+}

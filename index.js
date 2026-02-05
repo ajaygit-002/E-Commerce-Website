@@ -1,101 +1,92 @@
-/* ===================================
-   GET ELEMENTS
-=================================== */
-const searchInput = document.getElementById("searchInput");
-const productList = document.getElementById("productList");
-const loginBtn = document.getElementById("loginBtn");
-const modal = document.getElementById("loginModal");
-const closeBtn = document.querySelector(".close");
+/* ========= GET ELEMENTS ========= */
 
-const cards = productList ? productList.querySelectorAll(".card") : [];
+function $(id){
+  return document.getElementById(id);
+}
+
+var searchInput = $("searchInput");
+var productList = $("productList");
+var loginBtn = $("loginBtn");
+var modal = $("loginModal");
+var closeBtn = document.querySelector(".close");
+
+var cards = productList ? productList.querySelectorAll(".card") : [];
 
 
-/* ===================================
-   SEARCH FUNCTION
-=================================== */
+/* ========= SEARCH ========= */
+
 function searchProducts() {
-  const value = searchInput.value.toLowerCase();
 
-  cards.forEach(function(card) {
+  var value = searchInput.value.toLowerCase();
 
-    const name = card.querySelector("h4").textContent.toLowerCase();
-    const price = card.querySelector("p").textContent.toLowerCase();
+  for(var i = 0; i < cards.length; i++){
 
-    if (name.includes(value) || price.includes(value)) {
-      card.style.display = "block";
+    var text = cards[i].innerText.toLowerCase();
+
+    if(text.indexOf(value) !== -1){
+      cards[i].style.display = "block";
     } else {
-      card.style.display = "none";
+      cards[i].style.display = "none";
     }
 
-  });
+  }
 }
 
 
-/* ===================================
-   OPEN MODAL
-=================================== */
-function openModal() {
+/* ========= MODAL ========= */
+
+function openModal(){
   modal.style.display = "flex";
 }
 
-
-/* ===================================
-   CLOSE MODAL
-=================================== */
-function closeModal() {
+function closeModal(){
   modal.style.display = "none";
 }
 
 
-/* ===================================
-   LOGIN CHECK
-=================================== */
-function loginUser() {
+/* ========= LOGIN ========= */
 
-  const inputs = modal.querySelectorAll("input");
+function loginUser(){
 
-  const username = inputs[0].value;
-  const password = inputs[1].value;
+  var inputs = modal.querySelectorAll("input");
 
-  if (username !== "" && password !== "") {
+  var user = inputs[0].value;
+  var pass = inputs[1].value;
+
+  if(user && pass){
     alert("Login successful!");
-    closeModal();
-
     inputs[0].value = "";
     inputs[1].value = "";
-  } 
-  else {
+    closeModal();
+  } else {
     alert("Please fill in all fields!");
   }
 }
 
 
-/* ===================================
-   EVENTS
-=================================== */
+/* ========= EVENTS ========= */
 
-if (searchInput) {
+if(searchInput){
   searchInput.addEventListener("keyup", searchProducts);
 }
 
-if (loginBtn) {
+if(loginBtn){
   loginBtn.addEventListener("click", openModal);
 }
 
-if (closeBtn) {
+if(closeBtn){
   closeBtn.addEventListener("click", closeModal);
 }
 
-if (modal) {
+if(modal){
   modal.addEventListener("click", function(e){
     if(e.target === modal){
       closeModal();
     }
   });
-}
 
-/* login button inside modal */
-const loginFormBtn = modal ? modal.querySelector("button") : null;
-if (loginFormBtn) {
-  loginFormBtn.addEventListener("click", loginUser);
+  var loginBtnInside = modal.querySelector("button");
+  if(loginBtnInside){
+    loginBtnInside.addEventListener("click", loginUser);
+  }
 }
