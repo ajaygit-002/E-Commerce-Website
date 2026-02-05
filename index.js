@@ -1,92 +1,177 @@
+/* ===============================
+   PRIME STORE - MAIN JS
+================================ */
+
+
 /* ========= GET ELEMENTS ========= */
 
-function $(id){
+function $(id) {
   return document.getElementById(id);
 }
 
-var searchInput = $("searchInput");
-var productList = $("productList");
-var loginBtn = $("loginBtn");
-var modal = $("loginModal");
-var closeBtn = document.querySelector(".close");
+const searchInput = $("searchInput");
+const productList = $("productList");
 
-var cards = productList ? productList.querySelectorAll(".card") : [];
+const loginBtn = $("loginBtn");
+const modal = $("loginModal");
+const closeBtn = document.querySelector(".close");
+
+const cartBtn = document.querySelector(".cart-btn");
+
+/* login inputs inside modal */
+const usernameInput = modal ? modal.querySelectorAll("input")[0] : null;
+const passwordInput = modal ? modal.querySelectorAll("input")[1] : null;
+const modalLoginBtn = modal ? modal.querySelector(".modal-box button") : null;
 
 
-/* ========= SEARCH ========= */
 
-function searchProducts() {
+/* ===============================
+   SEARCH FILTER
+================================ */
 
-  var value = searchInput.value.toLowerCase();
+if (searchInput && productList) {
 
-  for(var i = 0; i < cards.length; i++){
+  const cards = productList.querySelectorAll(".card");
 
-    var text = cards[i].innerText.toLowerCase();
+  searchInput.addEventListener("keyup", function () {
 
-    if(text.indexOf(value) !== -1){
-      cards[i].style.display = "block";
-    } else {
-      cards[i].style.display = "none";
-    }
+    const value = this.value.toLowerCase();
 
-  }
+    cards.forEach(card => {
+
+      const title = card.querySelector("h4").innerText.toLowerCase();
+
+      card.style.display = title.includes(value) ? "block" : "none";
+
+    });
+
+  });
 }
 
 
-/* ========= MODAL ========= */
 
-function openModal(){
-  modal.style.display = "flex";
+/* ===============================
+   LOGIN MODAL OPEN
+================================ */
+
+if (loginBtn && modal) {
+  loginBtn.addEventListener("click", openLoginModal);
 }
 
-function closeModal(){
-  modal.style.display = "none";
-}
+function openLoginModal() {
 
+  /* if already logged in → logout */
+  const savedUser = localStorage.getItem("primeUser");
 
-/* ========= LOGIN ========= */
-
-function loginUser(){
-
-  var inputs = modal.querySelectorAll("input");
-
-  var user = inputs[0].value;
-  var pass = inputs[1].value;
-
-  if(user && pass){
-    alert("Login successful!");
-    inputs[0].value = "";
-    inputs[1].value = "";
-    closeModal();
+  if (savedUser) {
+    logout();
   } else {
-    alert("Please fill in all fields!");
+    modal.style.display = "flex";
   }
 }
 
 
-/* ========= EVENTS ========= */
 
-if(searchInput){
-  searchInput.addEventListener("keyup", searchProducts);
+/* ===============================
+   CLOSE MODAL
+================================ */
+
+if (closeBtn && modal) {
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 }
 
-if(loginBtn){
-  loginBtn.addEventListener("click", openModal);
-}
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
-if(closeBtn){
-  closeBtn.addEventListener("click", closeModal);
-}
 
-if(modal){
-  modal.addEventListener("click", function(e){
-    if(e.target === modal){
-      closeModal();
+
+/* ===============================
+   LOGIN FUNCTION (LOCAL STORAGE)
+================================ */
+
+if (modalLoginBtn) {
+
+  modalLoginBtn.addEventListener("click", () => {
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (!username || !password) {
+      alert("⚠ Please enter username & password");
+      return;
     }
+
+    /* Save username in browser */
+    localStorage.setItem("primeUser", username);
+
+    alert("✅ Login Successful!");
+
+    modal.style.display = "none";
+
+    setLoggedInUI(username);
+
   });
 
-  var loginBtnInside = modal.querySelector("button");
-  if(loginBtnInside){
-    loginBtnInside.addEventListener("click", loginUser);
-  }
 }
+
+
+
+/* ===============================
+   AUTO LOGIN AFTER REFRESH
+================================ */
+
+window.addEventListener("DOMContentLoaded", () => {
+
+  const savedUser = localStorage.getItem("primeUser");
+
+  if (savedUser) {
+    setLoggedInUI(savedUser);
+  }
+
+});
+
+
+
+/* ===============================
+   CHANGE BUTTON AFTER LOGIN
+================================ */
+
+function setLoggedInUI(username) {
+  loginBtn.innerText = "Logout (" + username + ")";
+}
+
+
+
+/* ===============================
+   LOGOUT
+================================ */
+
+function logout() {
+  localStorage.removeItem("primeUser");
+  alert("👋 Logged out successfully");
+  location.reload();
+}
+
+
+
+/* ===============================
+   CART BUTTON → GO TO CART PAGE
+================================ */
+
+/* ===============================
+   CART BUTTON → GO TO CART PAGE
+================================ */
+
+if (cartBtn) {
+  cartBtn.addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
+}
+
+
+    
